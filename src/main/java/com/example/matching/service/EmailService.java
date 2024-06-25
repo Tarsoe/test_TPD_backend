@@ -19,8 +19,9 @@ public class EmailService {
 
     public void sendPasswordResetEmail(String to, String token) {
         String subject = "Password Reset Request";
-        String text = "To reset your password, click the link below:\n"
-                + "http://localhost:8080/password-reset/validate?token=" + token;
+        // String text = "To reset your password, click the link below:\n"
+        // + "http://localhost:8080/password-reset/validate?token=" + token;
+        String text = "To reset your password, used this token below:\n" + token;
 
         try {
             MimeMessage message = mailSender.createMimeMessage();

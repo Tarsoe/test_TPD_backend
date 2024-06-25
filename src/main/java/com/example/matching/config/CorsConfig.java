@@ -14,8 +14,8 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        // config.addAllowedOrigin("http://localhost:5173"); // Add the origin from where requests are coming
-        config.addAllowedOrigin("https://matchingapp.vercel.app"); // Add the origin from where requests are coming
+        config.addAllowedOrigin("http://localhost:5173"); // Add the origin from where requests are coming
+        // config.addAllowedOrigin("https://matchingapp.vercel.app"); // Add the origin from where requests are coming
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
