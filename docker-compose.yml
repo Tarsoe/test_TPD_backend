@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  your-app:
+    image: matching
+    # image: yourapp-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - JWT_SECRET=${JWT_SECRET} # Environment variable from the .env file
+      - DB_URL=${DB_URL}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+    ports:
+      - "8080:8080"
+
+# End
+# version: '3'
+# services:
+#   app:
+#     image: yourapp-image
+#     environment:
+#       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+#       - DB_URL=${DB_URL}
+#       - DB_USERNAME=${DB_USERNAME}
+#       - DB_PASSWORD=${DB_PASSWORD}
+#       - MAIL_USERNAME=${MAIL_USERNAME}
+#       - MAIL_PASSWORD=${MAIL_PASSWORD}

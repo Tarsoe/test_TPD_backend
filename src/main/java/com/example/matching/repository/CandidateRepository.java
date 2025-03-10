@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.matching.model.Candidate;
 import com.example.matching.model.Vacancy;
 
+
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
     // List<Candidate> findAllByOrderByTimestamp();
