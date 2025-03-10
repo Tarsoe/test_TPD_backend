@@ -1,15 +1,16 @@
 package com.example.matching.model;
 
-import java.util.Date;
 import jakarta.persistence.*;
+import java.util.Date;
+import java.util.UUID;
 
 @Entity
-@Table(name = "PasswordResetToken")
+@Table(name = "PasswordResetToken_UUID")
 public class PasswordResetToken {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;  // Changed from Long to UUID
 
     private String token;
 
@@ -19,8 +20,7 @@ public class PasswordResetToken {
 
     private Date expiryDate;
 
-    public PasswordResetToken() {
-    }
+    public PasswordResetToken() {}
 
     public PasswordResetToken(String token, User user) {
         this.token = token;
@@ -29,11 +29,11 @@ public class PasswordResetToken {
 
     // Getters and setters
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -61,6 +61,72 @@ public class PasswordResetToken {
         this.expiryDate = expiryDate;
     }
 }
+
+
+//! change long id into UUID
+// package com.example.matching.model;
+
+// import java.util.Date;
+// import jakarta.persistence.*;
+
+// @Entity
+// @Table(name = "PasswordResetToken")
+// public class PasswordResetToken {
+
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     private Long id;
+
+//     private String token;
+
+//     @ManyToOne
+//     @JoinColumn(name = "user_id")
+//     private User user;
+
+//     private Date expiryDate;
+
+//     public PasswordResetToken() {
+//     }
+
+//     public PasswordResetToken(String token, User user) {
+//         this.token = token;
+//         this.user = user;
+//     }
+
+//     // Getters and setters
+
+//     public Long getId() {
+//         return id;
+//     }
+
+//     public void setId(Long id) {
+//         this.id = id;
+//     }
+
+//     public String getToken() {
+//         return token;
+//     }
+
+//     public void setToken(String token) {
+//         this.token = token;
+//     }
+
+//     public User getUser() {
+//         return user;
+//     }
+
+//     public void setUser(User user) {
+//         this.user = user;
+//     }
+
+//     public Date getExpiryDate() {
+//         return expiryDate;
+//     }
+
+//     public void setExpiryDate(Date expiryDate) {
+//         this.expiryDate = expiryDate;
+//     }
+// }
 
 
 // ! End

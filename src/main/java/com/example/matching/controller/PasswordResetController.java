@@ -27,12 +27,12 @@ public class PasswordResetController {
     @PostMapping("/request")
     public Map<String, String> requestPasswordReset(@RequestParam("email") String userEmail) {
         User user = userService.findUserByEmail(userEmail)
-                .orElseThrow(() -> new IllegalArgumentException("No user found with this email."));
+                .orElseThrow(() -> new IllegalArgumentException("No user found with this email. From backend"));
         String token = passwordResetTokenService.createPasswordResetTokenForUser(user);
         emailService.sendPasswordResetEmail(userEmail, token);
 
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Password reset token has been sent to your email.");
+        response.put("message", "Password reset token has been sent to your email. \n Click next to validate token");
         return response;
     }
 
